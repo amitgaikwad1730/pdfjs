@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<title> PDF </title>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row p-3">
+			<div class="col-md-6">
+				<div class="form-group">
+				  <label>Text-1:</label>
+				   <input type="text" id="txt1" class="form-control" value="invoice">
+				</div>
+				<div class="form-group">
+				  <label >Text-2:</label>
+				  <input type="text" id="txt2" class="form-control" value="description">
+				</div>
+				<div class="form-group">
+				  <label >Text-3:</label>
+				  <input type="text" id="txt3" class="form-control" value="15 Aug 2017">
+				</div>
+				<div class="form-group">
+				  <label >Text-4:</label>
+				  <input type="text" id="txt4" class="form-control" value="East Repair">
+				</div>
+				<div class="form-group">
+				  <label >Text-5:</label>
+				  <input type="text" id="txt5" class="form-control" value="Thank you">
+				</div>
+
+			</div>
+			<div class="col-md-6">
+				<iframe src="static/pdfjs/web/viewer.html?file=new2.pdf&search=" id="myiframe" width="100%" height="700px"></iframe>
+			</div>
+		</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    $("#txt1").mouseup(function(e) {
+        e.preventDefault();
+        $(this).select();
+        searchText($(this).val());
+    });
+
+    $("#txt2").mouseup(function(e) {
+        e.preventDefault();
+        $(this).select();
+        searchText($(this).val());
+    });
+
+    $("#txt3").mouseup(function(e) {
+        e.preventDefault();
+        $(this).select();
+        searchText($(this).val());
+    });
+
+    $("#txt4").mouseup(function(e) {
+        e.preventDefault();
+        $(this).select();
+        searchText($(this).val());
+    });
+
+    $("#txt5").mouseup(function(e) {
+        e.preventDefault();
+        $(this).select();
+        searchText($(this).val());
+    });
+
+    function searchText(string){
+        var url = $("#myiframe").attr('src');
+        var remove_after= url.indexOf('&search=');
+        url =  url.substring(0, remove_after);
+        $("#myiframe").attr('src',url+"&search="+string)
+    }
+    </script>
+
+
+</body>
+</html>
